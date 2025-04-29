@@ -2,7 +2,7 @@ name: Generate Reports List
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
     paths:
       - 'reports/**/*.html'
   workflow_dispatch:  # Allow manual trigger
