@@ -1,0 +1,39 @@
+name: Generate Reports List
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'reports/**/*.html'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  generate-report-list:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Generate report_files.js
+        run: |
+          echo "// 此檔案由 GitHub Actions 自動生成" > report_files.js
+          echo "// 最後更新時間: $(date '+%Y-%m-%d %H:%M:%S')" >> report_files.js
+          echo "" >> report_files.js
+          echo "const reportFiles = [" >> report_files.js
+          
+          # Find HTML files in reports directory and add them to the list
+          find reports -name "*.html" -type f | sort -r | while read file; do
+            filename=$(basename "$file")
+            echo "    '$filename'," >> report_files.js
+          done
+          
+          echo "];" >> report_files.js
+          
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add report_files.js
+          git commit -m "Update report files list" || echo "No changes to commit"
+          git push 
