@@ -1,0 +1,1686 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>動量波動率分析結果報告</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <style>
+            body { font-family: 'Microsoft JhengHei', 'Microsoft YaHei', Arial, sans-serif; padding: 20px; }
+            .report-header { margin-bottom: 20px; }
+            .report-footer { margin-top: 30px; font-size: 0.9em; color: #6c757d; text-align: center; }
+            .report-title { border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-bottom: 20px; }
+            .stats-box { background-color: #f8f9fa; border-radius: 5px; padding: 15px; margin-bottom: 20px; }
+            .stats-item { display: inline-block; margin-right: 20px; }
+            @media print {
+                .no-print { display: none; }
+                a { text-decoration: none; color: #000; }
+                .chart-thumbnail { max-height: 150px !important; }
+                .page-break { page-break-before: always; }
+            }
+            .chart-thumbnail:hover {
+                transform: scale(1.05);
+                transition: transform 0.3s ease;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            .explanation-section {
+                margin-bottom: 30px;
+            }
+            .nav-pills .nav-link {
+                margin-right: 5px;
+            }
+            .nav-pills .nav-link.active {
+                background-color: #0d6efd;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="report-header">
+                <h1 class="report-title">動量波動率分析結果報告</h1>
+                <p class="text-muted">生成時間: 2025/4/25 上午10:53:40</p>
+                
+                <ul class="nav nav-pills mb-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#results-section">分析結果</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#theory-section">策略原理</a>
+                    </li>
+                </ul>
+                
+                <div class="stats-box">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>篩選條件:</h5>
+                            <p><strong>信號類型:</strong> 入場信號<br><strong>導入日期:</strong> 2025-04-25<br></p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>統計數據:</h5>
+                            <div class="stats-item"><strong>入場信號:</strong> <span class="badge bg-success">92</span></div>
+                            <div class="stats-item"><strong>離場信號:</strong> <span class="badge bg-danger">0</span></div>
+                            <div class="stats-item"><strong>信號轉變:</strong> <span class="badge bg-warning text-dark">2</span></div>
+                            <div class="stats-item"><strong>總計:</strong> <span class="badge bg-primary">92</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary no-print mb-3" onclick="window.print()">
+                <i class="bi bi-printer"></i> 列印報告
+            </button>
+            
+            <button class="btn btn-secondary no-print mb-3 ms-2" id="expandAllCharts">
+                <i class="bi bi-arrows-angle-expand"></i> 展開所有圖表
+            </button>
+            
+            <div id="results-section">
+                <h2 class="mb-3">分析結果列表</h2>
+                
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr class="bg-primary text-white">
+                <th>導入時間</th>
+                <th>股票代碼</th>
+                <th>股票名稱</th>
+                <th>動量 (%)</th>
+                <th>波動率 (%)</th>
+                <th>信號</th>
+                <th>信號轉變</th>
+                <th>技術分析圖表</th>
+            </tr>
+        </thead>
+        <tbody>
+    
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>ACWI</td>
+            <td>MSCI全世界指數型基金</td>
+            <td>5.20%</td>
+            <td>22.14%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=ACWI" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=ACWI&ty=c&ta=1&p=d&s=l" alt="ACWI 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>AMLP</td>
+            <td>能源基礎設施有限合夥指數型基金</td>
+            <td>15.87%</td>
+            <td>21.72%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=AMLP" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=AMLP&ty=c&ta=1&p=d&s=l" alt="AMLP 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>AOA</td>
+            <td>iShares核心80/20配置平衡型指數基金</td>
+            <td>4.91%</td>
+            <td>17.08%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=AOA" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=AOA&ty=c&ta=1&p=d&s=l" alt="AOA 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>AOM</td>
+            <td>iShares核心40/60配置平衡型指數基金</td>
+            <td>5.23%</td>
+            <td>10.13%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=AOM" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=AOM&ty=c&ta=1&p=d&s=l" alt="AOM 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>BAB</td>
+            <td>Invesco應稅市政債券指數型基金</td>
+            <td>3.54%</td>
+            <td>7.71%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=BAB" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=BAB&ty=c&ta=1&p=d&s=l" alt="BAB 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>BIL</td>
+            <td>SPDR彭博1-3月美國國庫券指數型基金</td>
+            <td>4.31%</td>
+            <td>0.21%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=BIL" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=BIL&ty=c&ta=1&p=d&s=l" alt="BIL 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>DBA</td>
+            <td>德意志農產品指數基金</td>
+            <td>14.97%</td>
+            <td>14.92%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=DBA" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=DBA&ty=c&ta=1&p=d&s=l" alt="DBA 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>DBEM</td>
+            <td>新興市場匯率避險股票指數型基金</td>
+            <td>4.31%</td>
+            <td>20.41%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=DBEM" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=DBEM&ty=c&ta=1&p=d&s=l" alt="DBEM 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>DIA</td>
+            <td>道瓊工業指數基金</td>
+            <td>3.85%</td>
+            <td>21.36%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=DIA" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=DIA&ty=c&ta=1&p=d&s=l" alt="DIA 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>DOG</td>
+            <td>看空道瓊30指數基金</td>
+            <td>1.21%</td>
+            <td>21.33%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=DOG" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=DOG&ty=c&ta=1&p=d&s=l" alt="DOG 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>DVY</td>
+            <td>道瓊精選高股利指數型基金</td>
+            <td>8.14%</td>
+            <td>20.06%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=DVY" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=DVY&ty=c&ta=1&p=d&s=l" alt="DVY 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>DWX</td>
+            <td>標普國際高股利指數型基金</td>
+            <td>19.99%</td>
+            <td>13.32%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=DWX" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=DWX&ty=c&ta=1&p=d&s=l" alt="DWX 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>DXJ</td>
+            <td>WisdomTree日本股票匯率避險指數基金</td>
+            <td>0.33%</td>
+            <td>26.32%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=DXJ" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=DXJ&ty=c&ta=1&p=d&s=l" alt="DXJ 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>ECON</td>
+            <td>研究增強型新興經濟體指數型基金</td>
+            <td>1.30%</td>
+            <td>21.47%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=ECON" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=ECON&ty=c&ta=1&p=d&s=l" alt="ECON 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EEM</td>
+            <td>MSCI新興市場指數基金</td>
+            <td>3.60%</td>
+            <td>21.50%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EEM" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EEM&ty=c&ta=1&p=d&s=l" alt="EEM 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EFA</td>
+            <td>MSCI歐澳遠東指數型基金</td>
+            <td>6.58%</td>
+            <td>20.79%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EFA" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EFA&ty=c&ta=1&p=d&s=l" alt="EFA 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EMB</td>
+            <td>摩根新興市場美元債券指數型基金</td>
+            <td>6.49%</td>
+            <td>8.77%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EMB" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EMB&ty=c&ta=1&p=d&s=l" alt="EMB 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EMLC</td>
+            <td>新興市場當地貨幣債券指數型基金</td>
+            <td>5.63%</td>
+            <td>8.69%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EMLC" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EMLC&ty=c&ta=1&p=d&s=l" alt="EMLC 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EPHE</td>
+            <td>MSCI菲律賓指數型基金</td>
+            <td>3.93%</td>
+            <td>21.19%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EPHE" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EPHE&ty=c&ta=1&p=d&s=l" alt="EPHE 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EPP</td>
+            <td>MSCI亞太市場指數基金</td>
+            <td>6.89%</td>
+            <td>23.39%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EPP" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EPP&ty=c&ta=1&p=d&s=l" alt="EPP 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>ESGE</td>
+            <td>iShares新興市場ESG聚焦指數型基金</td>
+            <td>5.78%</td>
+            <td>21.48%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=ESGE" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=ESGE&ty=c&ta=1&p=d&s=l" alt="ESGE 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>ESGV</td>
+            <td>Vanguard美股ESG指數型基金</td>
+            <td>3.54%</td>
+            <td>25.69%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=ESGV" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=ESGV&ty=c&ta=1&p=d&s=l" alt="ESGV 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EUFN</td>
+            <td>iShares MSCI歐洲金融指數基金</td>
+            <td>29.93%</td>
+            <td>25.72%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EUFN" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EUFN&ty=c&ta=1&p=d&s=l" alt="EUFN 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EWA</td>
+            <td>MSCI澳洲指數基金</td>
+            <td>2.81%</td>
+            <td>25.92%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EWA" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EWA&ty=c&ta=1&p=d&s=l" alt="EWA 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EWC</td>
+            <td>MSCI加拿大指數型基金</td>
+            <td>12.53%</td>
+            <td>20.31%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EWC" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EWC&ty=c&ta=1&p=d&s=l" alt="EWC 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EWD</td>
+            <td>MSCI瑞典指數型基金</td>
+            <td>5.65%</td>
+            <td>26.72%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EWD" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EWD&ty=c&ta=1&p=d&s=l" alt="EWD 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EWG</td>
+            <td>MSCI德國指數基金</td>
+            <td>23.86%</td>
+            <td>24.86%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EWG" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EWG&ty=c&ta=1&p=d&s=l" alt="EWG 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EWH</td>
+            <td>MSCI香港指數基金</td>
+            <td>4.69%</td>
+            <td>24.04%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EWH" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EWH&ty=c&ta=1&p=d&s=l" alt="EWH 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EWI</td>
+            <td>MSCI義大利指數型基金</td>
+            <td>17.00%</td>
+            <td>25.62%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EWI" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EWI&ty=c&ta=1&p=d&s=l" alt="EWI 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EWJ</td>
+            <td>MSCI日本指數型基金</td>
+            <td>5.03%</td>
+            <td>22.41%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EWJ" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EWJ&ty=c&ta=1&p=d&s=l" alt="EWJ 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EWO</td>
+            <td>MSCI奧地利指數型基金</td>
+            <td>19.18%</td>
+            <td>27.00%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EWO" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EWO&ty=c&ta=1&p=d&s=l" alt="EWO 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EWP</td>
+            <td>MSCI西班牙指數型基金</td>
+            <td>26.85%</td>
+            <td>25.79%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EWP" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EWP&ty=c&ta=1&p=d&s=l" alt="EWP 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EWS</td>
+            <td>iShares MSCI新加坡指數型基金</td>
+            <td>28.12%</td>
+            <td>24.66%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EWS" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EWS&ty=c&ta=1&p=d&s=l" alt="EWS 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>EZU</td>
+            <td>MSCI歐元區指數型基金</td>
+            <td>8.85%</td>
+            <td>23.48%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=EZU" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=EZU&ty=c&ta=1&p=d&s=l" alt="EZU 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>FALN</td>
+            <td>iShares墮落天使美元債券指數型基金</td>
+            <td>5.14%</td>
+            <td>8.55%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=FALN" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=FALN&ty=c&ta=1&p=d&s=l" alt="FALN 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>FEZ</td>
+            <td>道瓊歐盟50指數基金</td>
+            <td>8.45%</td>
+            <td>24.22%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=FEZ" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=FEZ&ty=c&ta=1&p=d&s=l" alt="FEZ 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>FLOT</td>
+            <td>iShares浮動利率債券指數型基金</td>
+            <td>4.67%</td>
+            <td>2.91%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=FLOT" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=FLOT&ty=c&ta=1&p=d&s=l" alt="FLOT 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>FXE</td>
+            <td>看多歐元指數型基金</td>
+            <td>6.64%</td>
+            <td>9.67%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=FXE" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=FXE&ty=c&ta=1&p=d&s=l" alt="FXE 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>FXY</td>
+            <td>看多日圓指數型基金</td>
+            <td>9.56%</td>
+            <td>11.11%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=FXY" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=FXY&ty=c&ta=1&p=d&s=l" alt="FXY 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>GLD</td>
+            <td>道富黃金基金</td>
+            <td>42.68%</td>
+            <td>18.31%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=GLD" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=GLD&ty=c&ta=1&p=d&s=l" alt="GLD 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>HEDJ</td>
+            <td>歐洲股票型匯率避險指數基金</td>
+            <td>0.61%</td>
+            <td>22.70%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=HEDJ" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=HEDJ&ty=c&ta=1&p=d&s=l" alt="HEDJ 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>HYG</td>
+            <td>iShares高收益公司債指數型基金</td>
+            <td>7.19%</td>
+            <td>7.10%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=HYG" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=HYG&ty=c&ta=1&p=d&s=l" alt="HYG 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>ICVT</td>
+            <td>iShares可轉換債券指數型基金</td>
+            <td>8.54%</td>
+            <td>13.00%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=ICVT" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=ICVT&ty=c&ta=1&p=d&s=l" alt="ICVT 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>IEF</td>
+            <td>安碩7-10年期美國公債指數型基金</td>
+            <td>5.62%</td>
+            <td>6.70%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=IEF" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=IEF&ty=c&ta=1&p=d&s=l" alt="IEF 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>IGF</td>
+            <td>iShares全球基礎建設產業指數型基金</td>
+            <td>16.78%</td>
+            <td>17.26%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=IGF" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=IGF&ty=c&ta=1&p=d&s=l" alt="IGF 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>IHI</td>
+            <td>iShares美國醫療設備指數型基金</td>
+            <td>6.07%</td>
+            <td>21.35%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=IHI" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=IHI&ty=c&ta=1&p=d&s=l" alt="IHI 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>INDA</td>
+            <td>MSCI印度指數型基金</td>
+            <td>0.11%</td>
+            <td>15.71%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="bg-success text-white">EXIT→ENTER</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=INDA" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=INDA&ty=c&ta=1&p=d&s=l" alt="INDA 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>IOO</td>
+            <td>全球100指數型基金</td>
+            <td>2.94%</td>
+            <td>25.00%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=IOO" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=IOO&ty=c&ta=1&p=d&s=l" alt="IOO 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>IVE</td>
+            <td>標普500價值型指數基金</td>
+            <td>1.24%</td>
+            <td>20.24%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=IVE" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=IVE&ty=c&ta=1&p=d&s=l" alt="IVE 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>IYR</td>
+            <td>道瓊美國不動產投資信託指數基金</td>
+            <td>11.28%</td>
+            <td>21.67%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=IYR" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=IYR&ty=c&ta=1&p=d&s=l" alt="IYR 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>IYZ</td>
+            <td>美國電信產業指數型基金</td>
+            <td>25.56%</td>
+            <td>21.15%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=IYZ" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=IYZ&ty=c&ta=1&p=d&s=l" alt="IYZ 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>JEPI</td>
+            <td>JPMorgan股票溢價收益主動型ETF</td>
+            <td>3.17%</td>
+            <td>17.98%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=JEPI" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=JEPI&ty=c&ta=1&p=d&s=l" alt="JEPI 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>KIE</td>
+            <td>標普保險業指數型基金</td>
+            <td>15.08%</td>
+            <td>23.63%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=KIE" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=KIE&ty=c&ta=1&p=d&s=l" alt="KIE 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>KSA</td>
+            <td>MSCI沙烏地阿拉伯指數型基金</td>
+            <td>2.93%</td>
+            <td>15.47%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=KSA" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=KSA&ty=c&ta=1&p=d&s=l" alt="KSA 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>LQD</td>
+            <td>iBoxx投資等級公司債券基金</td>
+            <td>4.51%</td>
+            <td>8.47%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=LQD" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=LQD&ty=c&ta=1&p=d&s=l" alt="LQD 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>NANC</td>
+            <td>Unusual Whales顛覆性民主黨交易主動型ETF</td>
+            <td>2.71%</td>
+            <td>25.77%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=NANC" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=NANC&ty=c&ta=1&p=d&s=l" alt="NANC 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>NXTG</td>
+            <td>First Trust Indxx新世代通訊指數型基金</td>
+            <td>8.40%</td>
+            <td>22.81%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=NXTG" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=NXTG&ty=c&ta=1&p=d&s=l" alt="NXTG 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>PAWZ</td>
+            <td>ProShares寵物照護指數型基金</td>
+            <td>3.12%</td>
+            <td>20.34%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=PAWZ" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=PAWZ&ty=c&ta=1&p=d&s=l" alt="PAWZ 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>PFF</td>
+            <td>美國優先股指數型基金</td>
+            <td>1.53%</td>
+            <td>10.86%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=PFF" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=PFF&ty=c&ta=1&p=d&s=l" alt="PFF 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>PGF</td>
+            <td>金融優先股指數型基金</td>
+            <td>1.36%</td>
+            <td>11.37%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=PGF" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=PGF&ty=c&ta=1&p=d&s=l" alt="PGF 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>PKW</td>
+            <td>股票回購指數型基金</td>
+            <td>5.53%</td>
+            <td>24.54%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=PKW" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=PKW&ty=c&ta=1&p=d&s=l" alt="PKW 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>QYLD</td>
+            <td>那斯達克100掩護性買權指數型基金</td>
+            <td>3.48%</td>
+            <td>24.31%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=QYLD" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=QYLD&ty=c&ta=1&p=d&s=l" alt="QYLD 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>REM</td>
+            <td>美國不動產協會抵押貸款指數基金</td>
+            <td>1.51%</td>
+            <td>24.10%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=REM" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=REM&ty=c&ta=1&p=d&s=l" alt="REM 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>RSP</td>
+            <td>Invesco標普500平均加權指數股票型基金</td>
+            <td>2.71%</td>
+            <td>21.55%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=RSP" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=RSP&ty=c&ta=1&p=d&s=l" alt="RSP 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>SDY</td>
+            <td>標準普爾高股利指數基金</td>
+            <td>3.42%</td>
+            <td>17.51%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=SDY" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=SDY&ty=c&ta=1&p=d&s=l" alt="SDY 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>SLV</td>
+            <td>安碩白銀基金</td>
+            <td>10.17%</td>
+            <td>26.73%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=SLV" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=SLV&ty=c&ta=1&p=d&s=l" alt="SLV 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>SPAB</td>
+            <td>巴克萊美國綜合債券基金</td>
+            <td>5.32%</td>
+            <td>5.48%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=SPAB" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=SPAB&ty=c&ta=1&p=d&s=l" alt="SPAB 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>SPFF</td>
+            <td>Global X美國特別股指數型基金</td>
+            <td>1.43%</td>
+            <td>12.76%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=SPFF" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=SPFF&ty=c&ta=1&p=d&s=l" alt="SPFF 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>SPY</td>
+            <td>史坦普500指數基金</td>
+            <td>4.57%</td>
+            <td>25.52%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=SPY" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=SPY&ty=c&ta=1&p=d&s=l" alt="SPY 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>SRVR</td>
+            <td>數據和基礎建設房地產指數型基金</td>
+            <td>9.77%</td>
+            <td>22.71%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=SRVR" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=SRVR&ty=c&ta=1&p=d&s=l" alt="SRVR 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>TAIL</td>
+            <td>Cambria極端風險主動型交易所交易基金</td>
+            <td>12.04%</td>
+            <td>25.90%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=TAIL" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=TAIL&ty=c&ta=1&p=d&s=l" alt="TAIL 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>TBF</td>
+            <td>看空20年期以上美國公債基金</td>
+            <td>5.32%</td>
+            <td>14.67%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=TBF" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=TBF&ty=c&ta=1&p=d&s=l" alt="TBF 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>TIP</td>
+            <td>巴克萊抗通膨債券指數基金</td>
+            <td>5.67%</td>
+            <td>5.04%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=TIP" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=TIP&ty=c&ta=1&p=d&s=l" alt="TIP 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>TLT</td>
+            <td>巴克萊20年期以上美國公債指數型基金</td>
+            <td>0.24%</td>
+            <td>15.06%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="bg-success text-white">EXIT→ENTER</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=TLT" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=TLT&ty=c&ta=1&p=d&s=l" alt="TLT 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>USMV</td>
+            <td>MSCI美國最低波動指數型基金</td>
+            <td>11.29%</td>
+            <td>16.34%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=USMV" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=USMV&ty=c&ta=1&p=d&s=l" alt="USMV 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>VCLT</td>
+            <td>Vanguard長期公司債券指數型基金</td>
+            <td>2.12%</td>
+            <td>13.23%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=VCLT" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=VCLT&ty=c&ta=1&p=d&s=l" alt="VCLT 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>VEA</td>
+            <td>富時已開發國家指數型基金</td>
+            <td>6.50%</td>
+            <td>20.22%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=VEA" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=VEA&ty=c&ta=1&p=d&s=l" alt="VEA 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>VIG</td>
+            <td>美國股利增值指數型基金</td>
+            <td>5.63%</td>
+            <td>19.92%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=VIG" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=VIG&ty=c&ta=1&p=d&s=l" alt="VIG 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>VNQ</td>
+            <td>美國不動產投資信託指數型基金</td>
+            <td>10.89%</td>
+            <td>21.62%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=VNQ" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=VNQ&ty=c&ta=1&p=d&s=l" alt="VNQ 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>VOO</td>
+            <td>Vanguard標普500指數型基金</td>
+            <td>4.61%</td>
+            <td>24.03%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=VOO" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=VOO&ty=c&ta=1&p=d&s=l" alt="VOO 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>VRP</td>
+            <td>PowerShares變動利率特別股指數型基金</td>
+            <td>5.97%</td>
+            <td>5.82%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=VRP" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=VRP&ty=c&ta=1&p=d&s=l" alt="VRP 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>VT</td>
+            <td>Vanguard全世界股票指數型基金</td>
+            <td>4.92%</td>
+            <td>21.80%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=VT" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=VT&ty=c&ta=1&p=d&s=l" alt="VT 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>VTI</td>
+            <td>整體股市指數基金</td>
+            <td>4.10%</td>
+            <td>25.34%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=VTI" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=VTI&ty=c&ta=1&p=d&s=l" alt="VTI 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>VTV</td>
+            <td>價值股指數型基金</td>
+            <td>5.04%</td>
+            <td>19.44%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=VTV" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=VTV&ty=c&ta=1&p=d&s=l" alt="VTV 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>VWO</td>
+            <td>Vanguard FTSE新興市場指數型基金</td>
+            <td>5.13%</td>
+            <td>20.73%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=VWO" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=VWO&ty=c&ta=1&p=d&s=l" alt="VWO 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>XLC</td>
+            <td>標普通訊服務類股指數型基金</td>
+            <td>14.32%</td>
+            <td>24.18%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=XLC" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=XLC&ty=c&ta=1&p=d&s=l" alt="XLC 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>XLF</td>
+            <td>S&P金融產業指數基金</td>
+            <td>17.76%</td>
+            <td>25.41%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=XLF" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=XLF&ty=c&ta=1&p=d&s=l" alt="XLF 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>XLI</td>
+            <td>道富工業類股指數型基金</td>
+            <td>5.20%</td>
+            <td>24.29%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=XLI" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=XLI&ty=c&ta=1&p=d&s=l" alt="XLI 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>XLP</td>
+            <td>標準普爾必需性消費類股基金</td>
+            <td>7.86%</td>
+            <td>16.07%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=XLP" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=XLP&ty=c&ta=1&p=d&s=l" alt="XLP 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>XLRE</td>
+            <td>SPDR房地產類股指數型基金</td>
+            <td>12.45%</td>
+            <td>21.58%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=XLRE" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=XLRE&ty=c&ta=1&p=d&s=l" alt="XLRE 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>XLU</td>
+            <td>標準普爾公用事業類股基金</td>
+            <td>13.07%</td>
+            <td>19.99%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=XLU" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=XLU&ty=c&ta=1&p=d&s=l" alt="XLU 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>2025-04-25 10:53:15</td>
+            <td>XYLD</td>
+            <td>Global X標普500掩護性買權指數型基金</td>
+            <td>6.44%</td>
+            <td>20.19%</td>
+            <td class="bg-success text-white">ENTER</td>
+            <td class="">無變化</td>
+            <td class="text-center">
+                <a href="https://finviz.com/quote.ashx?t=XYLD" target="_blank" class="chart-preview-link">
+                    <img src="https://finviz.com/chart.ashx?t=XYLD&ty=c&ta=1&p=d&s=l" alt="XYLD 圖表" 
+                        class="img-fluid chart-thumbnail" style="max-height: 80px; border: 1px solid #ddd;" loading="lazy">
+                </a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+            </div>
+            
+            <div class="page-break"></div>
+            
+            <div id="theory-section" class="explanation-section mt-5">
+                <h2 class="mb-3">策略原理與說明</h2>
+                
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">動量波動率選股策略原理說明</h4>
+        </div>
+        <div class="card-body">
+            <h5>策略基本原理</h5>
+            <p>本策略結合「動量」與「波動率」兩個關鍵指標，尋找具有持續上漲趨勢且風險相對可控的投資標的。</p>
+            
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-success text-white">動量 (Momentum)</div>
+                        <div class="card-body">
+                            <p><strong>定義：</strong>衡量價格相對於過去某一時間點的漲幅百分比。</p>
+                            <p><strong>計算方式：</strong>目前價格相對於 11 個月前價格的漲幅百分比。</p>
+                            <p><strong>意義：</strong>動量為正值表示股價呈上升趨勢，動量越大表示上升趨勢越強勁。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-danger text-white">波動率 (Volatility)</div>
+                        <div class="card-body">
+                            <p><strong>定義：</strong>衡量價格波動的幅度，反映投資風險的大小。</p>
+                            <p><strong>計算方式：</strong>基於 6 個月內的價格數據，計算年化標準差。</p>
+                            <p><strong>意義：</strong>波動率越高，價格波動越劇烈，風險越大；波動率越低，價格波動越平穩，風險越小。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h5 class="mt-4">信號判斷邏輯</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>信號類型</th>
+                            <th>判斷條件</th>
+                            <th>投資建議</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-success">
+                            <td><strong>入場 (ENTER)</strong></td>
+                            <td>動量為正 且 波動率 ≤ 27.0%</td>
+                            <td>適合進場，具有良好的上漲趨勢且風險相對可控</td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td><strong>離場 (EXIT)</strong></td>
+                            <td>動量為負 或 波動率 > 27.0%</td>
+                            <td>建議觀望或離場，趨勢較弱或風險較高</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h5 class="mt-3">信號轉變的意義</h5>
+            <p>信號從EXIT轉為ENTER：市場環境改善，適合考慮進場<br>
+            信號從ENTER轉為EXIT：市場風險增加，需考慮獲利了結或風險控管</p>
+        </div>
+    </div>
+    
+            </div>
+            
+            <div class="report-footer">
+                <p>本報告由動量波動率分析系統自動生成 &copy; 2025</p>
+            </div>
+        </div>
+        
+        <!-- 添加简单的功能脚本 -->
+        <script>
+            // 页面加载完成后执行
+            document.addEventListener('DOMContentLoaded', function() {
+                // 设置导航链接点击事件
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        // 移除所有活动状态
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        // 设置当前链接为活动状态
+                        this.classList.add('active');
+                        
+                        // 获取目标部分
+                        const targetId = this.getAttribute('href').substring(1);
+                        
+                        // 滚动到目标部分
+                        document.getElementById(targetId).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+                
+                // 设置展开所有图表按钮
+                document.getElementById('expandAllCharts').addEventListener('click', function() {
+                    const thumbnails = document.querySelectorAll('.chart-thumbnail');
+                    thumbnails.forEach(img => {
+                        img.style.maxHeight = img.style.maxHeight === '200px' ? '80px' : '200px';
+                    });
+                    
+                    this.innerHTML = this.innerHTML.includes('展開') ? 
+                        '<i class="bi bi-arrows-angle-contract"></i> 縮小所有圖表' : 
+                        '<i class="bi bi-arrows-angle-expand"></i> 展開所有圖表';
+                });
+            });
+        </script>
+    </body>
+    </html>
+    
