@@ -7,6 +7,9 @@ on:
       - 'reports/**/*.html'
   workflow_dispatch:  # Allow manual trigger
 
+permissions:
+  contents: write  # This gives the workflow permission to write to the repository
+
 jobs:
   generate-report-list:
     runs-on: ubuntu-latest
@@ -14,7 +17,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use the GitHub token to authenticate
+          
       - name: Generate report_files.js
         run: |
           echo "// 此檔案由 GitHub Actions 自動生成" > report_files.js
@@ -24,8 +29,7 @@ jobs:
           
           # Find HTML files in reports directory and add them to the list
           find reports -name "*.html" -type f | sort -r | while read file; do
-            filename=$(basename "$file")
-            echo "    '$filename'," >> report_files.js
+            echo "    \"$file\"," >> report_files.js
           done
           
           echo "];" >> report_files.js
